@@ -1,3 +1,4 @@
+// Product class to represent a product in the store
 class Product {
     constructor(name, price, quantity) {
         this.name = name;
@@ -21,6 +22,7 @@ class Product {
     }
 }
 
+// PerishableProduct class that extends Product and adds expiration date
 class PerishableProduct extends Product {
     constructor(name, price, quantity, expirationDate) {
         super(name, price, quantity);
@@ -32,6 +34,7 @@ class PerishableProduct extends Product {
     }
 }
 
+// Store class to manage inventory and calculate total value
 class Store {
     constructor() {
         this.inventory = [];
@@ -63,6 +66,8 @@ class Store {
 }
 
 // New Full Testing Area for every Class/Method
+
+// Create instances of Product and PerishableProduct
 const apple = new Product("Apple", 2.5, 50);
 const bread = new Product("Bread", 3.0, 10);
 const eggs = new Product("Eggs", 4.25, 40);
@@ -71,18 +76,22 @@ const yogurt = new PerishableProduct("Yogurt", 1.5, 30, "2026-07-10");
 
 const store = new Store();
 
+// Add products to the store inventory
 store.addProduct(apple);
 store.addProduct(bread);
 store.addProduct(eggs);
 store.addProduct(milk);
 store.addProduct(yogurt);
 
+// Display inventory value before applying discount
 console.log("Inventory Value Before Discount:", store.getInventoryValue().toFixed(2));
 
 Product.applyDiscount(store.inventory, 0.15);
 
+// Display inventory value after applying discount
 console.log("Inventory Value After Discount:", store.getInventoryValue().toFixed(2));
 
+// Find a product by name and display its details
 const foundProduct = store.findProductByName("Milk");
 
 if (foundProduct) {
