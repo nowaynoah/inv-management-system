@@ -62,32 +62,31 @@ class Store {
     }
 }
 
-// Testing Product Class/Constructor
+// New Full Testing Area for every Class/Method
 const apple = new Product("Apple", 2.5, 50);
+const bread = new Product("Bread", 3.0, 10);
+const eggs = new Product("Eggs", 4.25, 40);
+const milk = new PerishableProduct("Milk", 3.5, 20, "2026-07-01");
+const yogurt = new PerishableProduct("Yogurt", 1.5, 30, "2026-07-10");
 
-console.log(apple.toString());
-console.log(apple.getTotalValue());
+const store = new Store();
 
-//Testing PerishableProduct Subclass
-const milk = new PerishableProduct("Milk", 1.5, 10, "2024-12-31");
-const yogurt = new PerishableProduct("Yogurt", 3.25, 15, "2024-11-20");
+store.addProduct(apple);
+store.addProduct(bread);
+store.addProduct(eggs);
+store.addProduct(milk);
+store.addProduct(yogurt);
 
-console.log(milk.toString());
-console.log(yogurt.toString());
-console.log(milk.getTotalValue());
-console.log(yogurt.getTotalValue());
+console.log("Inventory Value Before Discount:", store.getInventoryValue().toFixed(2));
 
-//Testing Static Method for Discount
-const products = [apple, milk, yogurt];
+Product.applyDiscount(store.inventory, 0.15);
 
-console.log("Before Discount:");
-for (let p of products) {
-    console.log(p.toString());
-}
+console.log("Inventory Value After Discount:", store.getInventoryValue().toFixed(2));
 
-Product.applyDiscount(products, 0.15);
+const foundProduct = store.findProductByName("Milk");
 
-console.log("After discount:");
-for (let p of products) {
-    console.log(p.toString());
+if (foundProduct) {
+    console.log("Found Product:", foundProduct.toString());
+} else {
+    console.log("Product not found.");
 }
