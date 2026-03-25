@@ -2,6 +2,13 @@
 function display(text) {
     const outputDiv = document.getElementById("output");
     const p = document.createElement("p");
+
+    // If the text contains "-----", style it as a header in bold with extra margin
+    if (text.includes("-----")) {
+        p.style.fontWeight = "bold";
+        p.style.marginTop = "20px";
+    }
+
     p.textContent = text;
     outputDiv.appendChild(p);
 }
