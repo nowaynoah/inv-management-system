@@ -12,6 +12,13 @@ class Product {
     toString() {
         return `Product: ${this.name}, Price: $${this.price.toFixed(2)}, Quantity: ${this.quantity}`;
     }
+
+    //Adding discount method to Product Class
+    static applyDiscount(products, discount) {
+        for (let product of products) {
+            product.price = product.price * (1 - discount);
+        }
+    }
 }
 
 class PerishableProduct extends Product {
@@ -39,3 +46,4 @@ console.log(milk.toString());
 console.log(yogurt.toString());
 console.log(milk.getTotalValue());
 console.log(yogurt.getTotalValue());
+
