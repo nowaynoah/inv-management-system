@@ -101,39 +101,34 @@ store.addProduct(eggs);
 store.addProduct(milk);
 store.addProduct(yogurt);
 
-// Display inventory and total value before applying discount
-console.log("----- BEFORE DISCOUNT -----");
+display("----- BEFORE DISCOUNT -----");
 for (let product of store.inventory) {
-    console.log(product.toString());
+    display(product.toString());
 }
-console.log("Total Inventory Value:", store.getInventoryValue().toFixed(2));
+display("Total Inventory Value: $" + store.getInventoryValue().toFixed(2));
 
-// Apply a 15% discount to all products in the inventory
 Product.applyDiscount(store.inventory, 0.15);
 
-// Display inventory and total value after applying discount
-console.log("----- AFTER DISCOUNT -----");
+display("----- AFTER DISCOUNT -----");
 for (let product of store.inventory) {
-    console.log(product.toString());
+    display(product.toString());
 }
-console.log("Total Inventory Value:", store.getInventoryValue().toFixed(2));
+display("Total Inventory Value: $" + store.getInventoryValue().toFixed(2));
 
-// Search for a product by name
 const foundProduct = store.findProductByName("Milk");
 
-console.log("----- SEARCH RESULT -----");
+display("----- SEARCH RESULT -----");
 if (foundProduct) {
-    console.log(foundProduct.toString());
+    display("Found: " + foundProduct.toString());
 } else {
-    console.log("Product not found.");
+    display("Product not found.");
 }
 
-// Search for a product that does not exist in the inventory
 const missing = store.findProductByName("Banana");
 
-console.log("----- NOT FOUND TEST -----");
+display("----- NOT FOUND TEST -----");
 if (missing) {
-    console.log(missing.toString());
+    display("Found: " + missing.toString());
 } else {
-    console.log("Product not found.");
+    display("Product not found.");
 }
