@@ -1,16 +1,19 @@
 // Product class to represent a product in the store
 class Product {
     constructor(name, price, quantity) {
+        // Initialize product properties: name, price, and quantity
         this.name = name;
         this.price = price;
         this.quantity = quantity;
     }
 
     getTotalValue() {
+        // Calculate total value of the product based on price and quantity
         return this.price * this.quantity;
     }
 
     toString() {
+        // Return a string representation of the product with formatted price
         return `Product: ${this.name}, Price: $${this.price.toFixed(2)}, Quantity: ${this.quantity}`;
     }
 
@@ -25,11 +28,13 @@ class Product {
 // PerishableProduct class that extends Product and adds expiration date
 class PerishableProduct extends Product {
     constructor(name, price, quantity, expirationDate) {
+        // Call the parent constructor to initialize name, price, and quantity
         super(name, price, quantity);
         this.expirationDate = expirationDate;
     }
 
     toString() {
+        // Return a string representation of the perishable product, including expiration date
         return `Product: ${this.name}, Price: $${this.price.toFixed(2)}, Quantity: ${this.quantity}, Expiration Date: ${this.expirationDate}`;
     }
 }
@@ -37,10 +42,12 @@ class PerishableProduct extends Product {
 // Store class to manage inventory and calculate total value
 class Store {
     constructor() {
+        // Initialize an empty inventory array to hold products
         this.inventory = [];
     }
 
     addProduct(product) {
+        // Add a product to the store inventory
         this.inventory.push(product);
     }
 
@@ -48,6 +55,7 @@ class Store {
         let total = 0;
 
         for (let product of this.inventory) {
+            // Calculate total inventory value by summing the total value of each product
             total += product.getTotalValue();
         }
 
@@ -56,6 +64,7 @@ class Store {
 
     findProductByName(name) {
         for (let product of this.inventory) {
+            // Search for a product by name and return it if found
             if (product.name === name) {
                 return product;
             }
@@ -74,6 +83,7 @@ const eggs = new Product("Eggs", 4.25, 40);
 const milk = new PerishableProduct("Milk", 3.5, 20, "2026-07-01");
 const yogurt = new PerishableProduct("Yogurt", 1.5, 30, "2026-07-10");
 
+// Create a store instance
 const store = new Store();
 
 // Add products to the store inventory
