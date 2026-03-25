@@ -83,19 +83,25 @@ store.addProduct(eggs);
 store.addProduct(milk);
 store.addProduct(yogurt);
 
-// Display inventory value before applying discount
-console.log("Inventory Value Before Discount:", store.getInventoryValue().toFixed(2));
+console.log("----- BEFORE DISCOUNT -----");
+for (let product of store.inventory) {
+    console.log(product.toString());
+}
+console.log("Total Inventory Value:", store.getInventoryValue().toFixed(2));
 
 Product.applyDiscount(store.inventory, 0.15);
 
-// Display inventory value after applying discount
-console.log("Inventory Value After Discount:", store.getInventoryValue().toFixed(2));
+console.log("----- AFTER DISCOUNT -----");
+for (let product of store.inventory) {
+    console.log(product.toString());
+}
+console.log("Total Inventory Value:", store.getInventoryValue().toFixed(2));
 
-// Find a product by name and display its details
 const foundProduct = store.findProductByName("Milk");
 
+console.log("----- SEARCH RESULT -----");
 if (foundProduct) {
-    console.log("Found Product:", foundProduct.toString());
+    console.log(foundProduct.toString());
 } else {
     console.log("Product not found.");
 }
