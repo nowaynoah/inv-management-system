@@ -47,3 +47,17 @@ console.log(yogurt.toString());
 console.log(milk.getTotalValue());
 console.log(yogurt.getTotalValue());
 
+//Testing Static Method for Discount
+const products = [apple, milk, yogurt];
+
+console.log("Before Discount:");
+for (let p of products) {
+    console.log(p.toString());
+}
+
+Product.applyDiscount(products, 0.15);
+
+console.log("After discount:");
+for (let p of products) {
+    console.log(p.toString());
+}
