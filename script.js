@@ -32,6 +32,36 @@ class PerishableProduct extends Product {
     }
 }
 
+class Store {
+    constructor() {
+        this.inventory = [];
+    }
+
+    addProduct(product) {
+        this.inventory.push(product);
+    }
+
+    getInventoryValue() {
+        let total = 0;
+
+        for (let product of this.inventory) {
+            total += product.getTotalValue();
+        }
+
+        return total;
+    }
+
+    findProductByName(name) {
+        for (let product of this.inventory) {
+            if (product.name === name) {
+                return product;
+            }
+        }
+
+        return null;
+    }
+}
+
 // Testing Product Class/Constructor
 const apple = new Product("Apple", 2.5, 50);
 
