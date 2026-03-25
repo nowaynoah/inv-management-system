@@ -101,22 +101,27 @@ store.addProduct(eggs);
 store.addProduct(milk);
 store.addProduct(yogurt);
 
+// Display inventory before applying discount
 display("----- BEFORE DISCOUNT -----");
 for (let product of store.inventory) {
     display(product.toString());
 }
 display("Total Inventory Value: $" + store.getInventoryValue().toFixed(2));
 
+// Apply a 15% discount to all products in the inventory
 Product.applyDiscount(store.inventory, 0.15);
 
+// Display inventory after applying discount
 display("----- AFTER DISCOUNT -----");
 for (let product of store.inventory) {
     display(product.toString());
 }
 display("Total Inventory Value: $" + store.getInventoryValue().toFixed(2));
 
+// Test the findProductByName method
 const foundProduct = store.findProductByName("Milk");
 
+// Display the search result for the product "Milk"
 display("----- SEARCH RESULT -----");
 if (foundProduct) {
     display("Found: " + foundProduct.toString());
@@ -124,11 +129,14 @@ if (foundProduct) {
     display("Product not found.");
 }
 
-const missing = store.findProductByName("Banana");
+// Test the findProductByName method with a product that does not exist in the inventory
+const searchName = "Banana";
+const missing = store.findProductByName(searchName);
 
+// Display the search result for the product "Banana"
 display("----- NOT FOUND TEST -----");
 if (missing) {
     display("Found: " + missing.toString());
 } else {
-    display("Product not found.");
+    display(`Product '${searchName}' not found.`);
 }
