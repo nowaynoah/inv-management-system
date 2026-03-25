@@ -119,3 +119,12 @@ if (foundProduct) {
 } else {
     console.log("Product not found.");
 }
+
+const missing = store.findProductByName("Banana");
+
+console.log("----- NOT FOUND TEST -----");
+if (missing) {
+    console.log(missing.toString());
+} else {
+    console.log("Product not found.");
+}
