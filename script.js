@@ -1,3 +1,11 @@
+// Function to display output in the HTML page
+function display(text) {
+    const outputDiv = document.getElementById("output");
+    const p = document.createElement("p");
+    p.textContent = text;
+    outputDiv.appendChild(p);
+}
+
 // Product class to represent a product in the store
 class Product {
     constructor(name, price, quantity) {
