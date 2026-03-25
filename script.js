@@ -120,6 +120,7 @@ if (foundProduct) {
     console.log("Product not found.");
 }
 
+// Search for a product that does not exist in the inventory
 const missing = store.findProductByName("Banana");
 
 console.log("----- NOT FOUND TEST -----");
